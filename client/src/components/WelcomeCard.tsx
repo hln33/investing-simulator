@@ -9,12 +9,15 @@ function WelcomeCard(props) {
 
     return (
         <Card 
-        title={<p>
-            {title}
-            <i style={{ color: 'var(--primary-color' }} className={icon}/> 
-        </p>}
-        subTitle={subtitle}
-    />
+            style={{ backgroundColor: 'ghostwhite', margin: "0px" }}
+            title={
+                <p>
+                {title}
+                <i style={{ color: 'var(--primary-color', paddingLeft: "10px" }} className={icon}/> 
+                </p>
+            }
+            subTitle={subtitle}
+        />
     );
 }
 
