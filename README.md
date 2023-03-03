@@ -25,7 +25,7 @@ If stuck, check out this tutorial -- the section regarding chrome remote desktop
 - to access the postgres shell, enter: psql <br>
 - to access the investment-sim database, enter: psql investment-sim <br>
 - if you want to exit the current db, enter: \q <br>
-- to list databases, enter: \dt <br>
+- to list all tables, enter: \dt <br>
 <br>
 More PostGresql commands here: https://hasura.io/blog/top-psql-commands-and-flags-you-need-to-know-postgresql/ </br>
 
