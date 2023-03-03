@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
+import Welcome from './components/Welcome'
+
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";     //theme
 import "primereact/resources/primereact.min.css";                         //core css
 import "primeicons/primeicons.css";                                       //icons
@@ -23,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      hello world!
+      <Welcome/>
       <p>{data.apiResponse}</p>
     </div>
   );
