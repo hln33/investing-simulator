@@ -9,7 +9,7 @@ Work Flow Expectations:
 - Don't merge your own PRs
 - Make a branch for every issue
 
-<h2>How to access the VM through a GUI using Chrome Remote Desktop:</h2><br>
+<h2>How to access the VM through a GUI using Chrome Remote Desktop:</h2>
 - go to this page: https://remotedesktop.google.com/headless.<br>
 - keep pressing the blue button until you get to the "authorize button". Click <br>
 the button and on the next page, copy the text below "debian linux".<br>
@@ -19,7 +19,7 @@ the button and on the next page, copy the text below "debian linux".<br>
 <br>
 If stuck, check out this tutorial -- the section regarding chrome remote desktop should be helpful.
 <br>
-<h2>How to access PostGresql:</h2><br>
+<h2>How to access PostGresql:</h2>
 - enter: su – postgres <br>
 - password is: 12345 <br>
 - to access the postgres shell, enter: psql <br>
