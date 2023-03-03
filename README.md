@@ -27,6 +27,12 @@ If stuck, check out this tutorial -- the section regarding chrome remote desktop
 - if you want to exit the current db, enter: \q <br>
 - to list all tables, enter: \dt <br>
 <br>
+
+<h3>UPDATE:</h3>
+- installed a PostGresql GUI using pgadmin4; can find it inside the top-left activities button of the desktop (search pgadmin)
+- this is connected to the local PostGresql DB, which should make it easier for future development
+
+<br>
 More PostGresql commands here: https://hasura.io/blog/top-psql-commands-and-flags-you-need-to-know-postgresql/ </br>
 
 
