@@ -10,6 +10,11 @@ This is an Investment Simulator program created for CMPT-372.
 - Make a branch for every issue<br>
 
 <h1>Frontend Information:</h1>
+
+How to start the client:<br>
+- from the root, cd into client<br>
+- run: npm start<br>
+
 Main UI Library: Prime React - https://primereact.org/
 
 What it is:
@@ -28,6 +33,10 @@ What it is:
 <hr>
 
 <h1>Backend Information:</h1>
+
+How to start the server:<br>
+- from the root, run: npm start<br>
+- NOTE: nodemon has been installed so dont worry about refreshing the server to apply updates; it will do it automatically<br>
 
 <h2>How to access the VM through a GUI using Chrome Remote Desktop:</h2>
 - go to this page: https://remotedesktop.google.com/headless.<br>
@@ -49,12 +58,10 @@ If stuck, check out this tutorial -- the section regarding chrome remote desktop
 <br>
 
 <h3>UPDATE:</h3>
-- installed a PostGresql GUI using pgadmin4; can find it inside the top-left activities button of the desktop (search pgadmin)
-- this is connected to the local PostGresql DB, which should make it easier for future development
+- installed a PostGresql GUI using pgadmin4; can find it inside the top-left activities button of the desktop (search pgadmin)<br>
+- this is connected to the local PostGresql DB, which should make it easier for future development<br>
 
-<br>
 More PostGresql commands here: https://hasura.io/blog/top-psql-commands-and-flags-you-need-to-know-postgresql/ </br>
-
 
 Team Members:
 -------------
