@@ -1,22 +1,36 @@
 import React from 'react';
 
+import { Card } from 'primereact/card';
+import { PrimeIcons } from 'primereact/api';
+
+import WelcomeCard from './WelcomeCard';
+
 function Welcome(props) {
     
     return (
         <div>
-            <h1>Welcome to Investment Simulator</h1>
+            <h1 style={{ color: 'var(--primary-color)' }}>Investment Simulator</h1>
             <br></br>
 
-            <h2>Practice Investing Without The Risks</h2>
-            <p>Practice investing without using real money and see how well you do.</p>
+            <WelcomeCard
+                title={"Practice Investing"}
+                subtitle={"Practice investing without using real money and see how well you do."}
+                icon={PrimeIcons.CHECK_SQUARE}
+            />
             <br></br>
 
-            <h2>Real Time Data</h2>
-            <p>View hundreds of real life stocks and their peformance in real time</p>
+            <WelcomeCard
+                title={"Compete with Others"}
+                subtitle={"Partcipate in investing competitions with other users to see who comes out on top."}
+                icon={PrimeIcons.USERS}
+            />
             <br></br>
 
-            <h2>Make Investing Fun</h2>
-            <p>Partcipate in investing competitions with other users to see who comes out on top.</p>
+            <WelcomeCard
+                title={"Real Time Data "}
+                subtitle={"View hundreds of real life stocks and their peformance in real time."}
+                icon={PrimeIcons.CHART_BAR}
+            />
             <br></br>
 
             <p>Login</p>
