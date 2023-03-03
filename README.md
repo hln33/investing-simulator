@@ -5,9 +5,9 @@ CMPT-372 - Investment Simulator
 This is an Investment Simulator program created for CMPT-372.
 
 <h1>Work Flow Expectations:</h1>
-- Make PRs only for dev branch (dev branches from master)
-- Don't merge your own PRs
-- Make a branch for every issue
+- Make PRs only for dev branch (dev branches from master)<br>
+- Don't merge your own PRs<br>
+- Make a branch for every issue<br>
 
 <h1>Frontend Information:</h1>
 Main UI Library: Prime React - https://primereact.org/
