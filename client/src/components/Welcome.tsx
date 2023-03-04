@@ -2,6 +2,7 @@ import React from 'react';
 
 import { PrimeIcons } from 'primereact/api';
 
+import WelcomeSignUp from './WelcomeSignUp';
 import WelcomeCard from './WelcomeCard';
 import practiceInvestingImage from '../assets/practiceInvesting.jpg';
 import competeImage from '../assets/compete.jpg';
@@ -10,11 +11,13 @@ import dataImage from '../assets/data.jpg'
 function Welcome(props) {
     
     return (
-        <div>
-            <h1 style={{ color: 'var(--primary-color)', paddingLeft: '2em' }}>Investment Simulator</h1>
-
-            <div className="grid" style={{ padding: '2em' }}>
-                <div className="col">
+        <div style={{ padding: '2em' }}>
+            <h1 style={{ color: 'var(--primary-color)'}}>Investment Simulator</h1>
+            
+            <WelcomeSignUp/>
+            <br></br>
+            <div className="grid">
+                <div className="col-4">
                     <WelcomeCard
                         image={practiceInvestingImage}
                         title={"Practice Investing"}
@@ -22,7 +25,7 @@ function Welcome(props) {
                         icon={PrimeIcons.CHECK_SQUARE}
                     />
                 </div>
-                <div className="col">
+                <div className="col-4">
                     <WelcomeCard
                         image={competeImage}
                         title={"Compete with Others"}
@@ -30,7 +33,7 @@ function Welcome(props) {
                         icon={PrimeIcons.USERS}
                     />
                 </div>
-                <div className="col">
+                <div className="col-4">
                     <WelcomeCard
                         image={dataImage}
                         title={"Real Time Data "}
