@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
-
+import Navbar from 'components/NavBar';
 import Welcome from './components/Welcome'
 
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";     //theme
@@ -25,6 +25,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar/>
       <Welcome/>
       <p>{data.apiResponse}</p>
     </div>
