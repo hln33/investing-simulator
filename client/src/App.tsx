@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from "react-router-dom";
 
-import Welcome from './components/Welcome'
-
+// PrimeReact
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";     //theme
 import "primereact/resources/primereact.min.css";                         //core css
 import "primeicons/primeicons.css";                                       //icons
 import "primeflex/primeflex.css"
 
-import { TimeSeries, Symbol, Interval, OutputSize, DataType } from 'enums/AlphaVantage';
-import { getStockInformation} from 'api/Stock/Stock';
+// Components
+import Welcome from 'components/Welcome';
 
-function App() {
+// Enums
+import { TimeSeries, Symbol, Interval, OutputSize, DataType } from 'enums/AlphaVantage';
+
+// API
+import { getStockInformation } from 'api/Stock/Stock';
+
+const App = () => {
 
   const [data, setData] = useState<Object>({ apiResponse: "" });
 
@@ -26,9 +32,12 @@ function App() {
   console.log(data);
 
   return (
-    <div className="App">
-      <Welcome/>
-    </div>
+      <Routes>
+        <Route path='/' element={<Welcome />} />
+        {/* <Route path='/register' element={<Register />} /> */}
+        {/* <Route path='/login' element={<Login />} /> */}
+        {/* <Route path='/dashboard' element={<Dashboard />} /> */}
+      </Routes>
   );
 }
 
