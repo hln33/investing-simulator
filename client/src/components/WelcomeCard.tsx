@@ -3,13 +3,15 @@ import React from 'react';
 import { Card } from 'primereact/card';
 
 function WelcomeCard(props) {
+    const image = props.image
     const title = props.title;
     const subtitle = props.subtitle;
     const icon = props.icon;
 
     return (
         <Card 
-            style={{ backgroundColor: 'ghostwhite', margin: "0px" }}
+            style={{ backgroundColor: 'ghostwhite' }}
+            header={<img src={image}></img>}
             title={
                 <p>
                 {title}
