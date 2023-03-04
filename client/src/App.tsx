@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 
 // PrimeReact
+import axios from 'axios';
+
+import Footer from 'components/Footer'
+
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";     //theme
 import "primereact/resources/primereact.min.css";                         //core css
 import "primeicons/primeicons.css";                                       //icons
@@ -44,6 +48,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         {/* <Route path='/dashboard' element={<Dashboard />} /> */}
       </Routes>
+      <Footer />
     </div>
   );
 }
