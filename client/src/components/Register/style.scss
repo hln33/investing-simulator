@@ -1,5 +1,28 @@
 .register {
+  background-image: url('../../assets/bg-register.jpg');
+  background-repeat: no-repeat;
+  background-position: 'center';
+  background-size: 'cover';
+
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
   .register-card {
-    padding: 5rem;
+    width: 30rem;
+    .p-card .p-card-body {
+      padding: 0;
+    }
+  }
+
+  .register-password {
+    .p-inputtext {
+      width: 100%;
+    }
+  }
+
+  label {
+    font-weight: bold;
+    display: block;
   }
 }
