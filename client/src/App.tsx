@@ -10,6 +10,7 @@ import "primeflex/primeflex.css"
 // Components
 import Welcome from 'components/Welcome/Welcome';
 import Register from 'components/Register/Register';
+import Login from 'components/Login/Login';
 
 // Enums
 import { TimeSeries, Symbol, Interval, OutputSize, DataType } from 'enums/AlphaVantage';
@@ -40,7 +41,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Welcome />} />
         <Route path='/register' element={<Register />} />
-        {/* <Route path='/login' element={<Login />} /> */}
+        <Route path='/login' element={<Login />} />
         {/* <Route path='/dashboard' element={<Dashboard />} /> */}
       </Routes>
     </div>
