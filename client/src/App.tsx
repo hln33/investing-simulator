@@ -10,6 +10,8 @@ import "primeflex/primeflex.css"
 // Components
 import Welcome from 'components/Welcome/Welcome';
 import Register from 'components/Register/Register';
+import Navbar from 'components/NavBar/NavBar';
+import Footer from 'components/Footer/Footer';
 
 // Enums
 import { TimeSeries, Symbol, Interval, OutputSize, DataType } from 'enums/AlphaVantage';
@@ -19,6 +21,7 @@ import { getStockInformation } from 'api/Stock/Stock';
 
 // Styles
 import './app.scss';
+
 
 const App = () => {
 
@@ -36,9 +39,15 @@ const App = () => {
   console.log(data);
 
   return (
-    <div className="App">
-      <Welcome/>
-      <p>{data.apiResponse}</p>
+    <div className='app'>
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<Welcome />} />
+        <Route path='/register' element={<Register />} />
+        {/* <Route path='/login' element={<Login />} /> */}
+        {/* <Route path='/dashboard' element={<Dashboard />} /> */}
+      </Routes>
+      <Footer/>
     </div>
   );
 }
