@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Card } from 'primereact/card';
+import { Button } from 'primereact/button'
 
 function WelcomeCard(props) {
     const image = props.image
@@ -19,6 +20,7 @@ function WelcomeCard(props) {
                 </p>
             }
             subTitle={subtitle}
+            footer={<Button>Learn More</Button>}
         />
     );
 }
