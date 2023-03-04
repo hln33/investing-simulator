@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Welcome from './components/Welcome'
+import Footer from './components/Footer'
 
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";     //theme
 import "primereact/resources/primereact.min.css";                         //core css
@@ -27,6 +28,7 @@ function App() {
     <div className="App">
       <Welcome/>
       <p>{data.apiResponse}</p>
+      <Footer/>
     </div>
   );
 }
