@@ -1,5 +1,6 @@
 .navbar {
     background-color: #f8f9fa;
+    color: #007bff;
     padding: 10px;
   }
   
@@ -8,7 +9,7 @@
   }
   
   .p-menuitem-link {
-    color: #000;
+    color: #007bff;
   }
   
   .p-menuitem-link:hover {

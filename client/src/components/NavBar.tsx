@@ -11,7 +11,7 @@ function Navbar() {
         url: '/',
     },
     {
-        label: 'About us',
+        label: 'About Us',
         icon: 'pi pi-fw pi-info-circle',
         url: '/about',
     },
@@ -30,16 +30,16 @@ function Navbar() {
   );
 
   const userMenu = (
-    <Menubar model={items} end={loginButton} />
+    <Menubar model={items} end={loginButton} style={{ color: 'var(--primary-color) '}}/>
   );
 
   const guestMenu = (
-    <Menubar model={items} end={loginButton} />
+    <Menubar model={items} end={loginButton} style={{ color: 'var(--primary-color)' }}/>
   );
 
   return (
-    <div className='navbar'>
-      <Menubar model={items} />
+    <div className='navbar' >
+      {guestMenu}
     </div>
   );
 }
