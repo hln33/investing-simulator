@@ -1,0 +1,17 @@
+.navbar {
+    background-color: #f8f9fa;
+    color: #007bff;
+    padding: 10px;
+  }
+  
+  .p-menubar {
+    background-color: transparent;
+  }
+  
+  .p-menuitem-link {
+    color: #007bff;
+  }
+  
+  .p-menuitem-link:hover {
+    color: #007bff;
+  }
