@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 
-// PrimeReact
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";     //theme
 import "primereact/resources/primereact.min.css";                         //core css
 import "primeicons/primeicons.css";                                       //icons
@@ -10,6 +9,9 @@ import "primeflex/primeflex.css"
 // Components
 import Welcome from 'components/Welcome/Welcome';
 import Register from 'components/Register/Register';
+import Login from 'components/Login/Login';
+import Footer from 'components/Footer'
+import Navbar from 'components/NavBar';
 
 // Enums
 import { TimeSeries, Symbol, Interval, OutputSize, DataType } from 'enums/AlphaVantage';
@@ -37,12 +39,14 @@ const App = () => {
 
   return (
     <div className='app'>
+      <Navbar />
       <Routes>
         <Route path='/' element={<Welcome />} />
         <Route path='/register' element={<Register />} />
-        {/* <Route path='/login' element={<Login />} /> */}
+        <Route path='/login' element={<Login />} />
         {/* <Route path='/dashboard' element={<Dashboard />} /> */}
       </Routes>
+      <Footer />
     </div>
   );
 }
