@@ -8,7 +8,7 @@ import "primeicons/primeicons.css";                                       //icon
 import "primeflex/primeflex.css"
 
 // Components
-import Welcome from 'components/Welcome';
+import Welcome from 'components/Welcome/Welcome';
 
 // Enums
 import { TimeSeries, Symbol, Interval, OutputSize, DataType } from 'enums/AlphaVantage';
