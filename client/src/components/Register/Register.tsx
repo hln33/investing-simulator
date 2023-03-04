@@ -13,9 +13,9 @@ import './style.scss';
 const Register = () => {
   return (
     <div className="register flex h-screen w-screen">
-      <div className="flex flex-grow-1 card-container flex-wrap justify-content-center overflow-hidden">
+      <div className="flex flex-grow-1 card-container flex-wrap justify-content-center align-content-center">
 
-        <div className="p-4 w-21rem h-8rem">
+        <div className="hidden lg:block p-4 w-21rem h-8rem">
           <p className="font-semibold text-5xl text-white">
             Are you ready to dive into the world of investing?
           </p>
@@ -25,7 +25,7 @@ const Register = () => {
           </p>
         </div>
 
-        <Card className="flex p-4 register-card">
+        <Card className="flex p-4 register-card align-items-center">
 
             <p className="font-medium text-xl text-center">
               Start with $10,000 in your simulated investment portfolio today
