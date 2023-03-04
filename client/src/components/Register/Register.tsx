@@ -80,7 +80,6 @@ const Register = () => {
       <label htmlFor="first-name">First Name</label>
       <InputText
         className={`mt-1 w-full ${classNames({ 'p-invalid': isFormFieldInvalid('firstName') })}`}
-        inputId="first-name"
         name="firstName"
         value={formik.values.firstName}
         onChange={(e: any) => formik.setFieldValue('firstName', e.target.value)}
@@ -94,7 +93,6 @@ const Register = () => {
       <label htmlFor="last-name">Last Name</label>
       <InputText
         className={`mt-1 w-full ${classNames({ 'p-invalid': isFormFieldInvalid('lastName') })}`}
-        inputId="last-name"
         name="lastName"
         value={formik.values.lastName}
         onChange={(e: any) => formik.setFieldValue('lastName', e.target.value)}
@@ -138,7 +136,6 @@ const Register = () => {
       <label htmlFor="password">Password</label>
       <Password
         className={`register-password mt-1 w-full ${classNames({ 'p-invalid': isFormFieldInvalid('password') })}`}
-        inputId="password"
         name="password"
         value={formik.values.password}
         onChange={(e: any) => formik.setFieldValue('password', e.target.value)}
@@ -153,7 +150,6 @@ const Register = () => {
       <label htmlFor="re-enter-password">Re-enter Password</label>
       <Password
         className={`register-password mt-1 w-full ${classNames({ 'p-invalid': isFormFieldInvalid('reEnterpassword') })}`}
-        inputId="re-enter-password"
         name="reEnterPassword"
         value={formik.values.reEnterPassword}
         onChange={(e: any) => formik.setFieldValue('reEnterPassword', e.target.value)}

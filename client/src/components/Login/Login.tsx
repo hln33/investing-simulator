@@ -50,7 +50,7 @@ const Login = () => {
           <InputText className="mb-2 mt-1 w-full" id="email" value={email} onChange={(e: any) => setEmail(e.target.value)} />
 
           <label htmlFor="password">Password</label>
-          <Password className={`password mt-1 w-full mb-0 pb-0 ${isInvalid && 'p-invalid'}`} inputId="password" feedback={false} value={password} onChange={(e: any) => onPasswordChange(e.target.value)} />
+          <Password className={`password mt-1 w-full mb-0 pb-0 ${isInvalid && 'p-invalid'}`} feedback={false} value={password} onChange={(e: any) => onPasswordChange(e.target.value)} />
           {
             isInvalid
               ? (<small className="mb-2 text-red-500" id="password-invalid">
