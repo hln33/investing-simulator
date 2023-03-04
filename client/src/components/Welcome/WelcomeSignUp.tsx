@@ -4,7 +4,7 @@ import { useState } from "react";
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 
-import backgroundImage from '../assets/invest.jpg'
+import backgroundImage from 'assets/invest.jpg'
 
 function WelcomeSignUp() {
     const [email, setEmail] = useState("");

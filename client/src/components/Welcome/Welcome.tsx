@@ -2,11 +2,11 @@ import React from 'react';
 
 import { PrimeIcons } from 'primereact/api';
 
-import WelcomeSignUp from './WelcomeSignUp';
-import WelcomeCard from './WelcomeCard';
-import practiceInvestingImage from '../assets/practiceInvesting.jpg';
-import competeImage from '../assets/compete.jpg';
-import dataImage from '../assets/data.jpg'
+import WelcomeSignUp from 'components/Welcome/WelcomeSignUp';
+import WelcomeCard from 'components/Welcome/WelcomeCard';
+import practiceInvestingImage from 'assets/practiceInvesting.jpg';
+import competeImage from 'assets/compete.jpg';
+import dataImage from 'assets/data.jpg'
 
 function Welcome(props) {
     

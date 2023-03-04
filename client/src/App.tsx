@@ -8,13 +8,17 @@ import "primeicons/primeicons.css";                                       //icon
 import "primeflex/primeflex.css"
 
 // Components
-import Welcome from 'components/Welcome';
+import Welcome from 'components/Welcome/Welcome';
+import Register from 'components/Register/Register';
 
 // Enums
 import { TimeSeries, Symbol, Interval, OutputSize, DataType } from 'enums/AlphaVantage';
 
 // API
 import { getStockInformation } from 'api/Stock/Stock';
+
+// Styles
+import './app.scss';
 
 const App = () => {
 
@@ -32,12 +36,14 @@ const App = () => {
   console.log(data);
 
   return (
+    <div className='app'>
       <Routes>
         <Route path='/' element={<Welcome />} />
-        {/* <Route path='/register' element={<Register />} /> */}
+        <Route path='/register' element={<Register />} />
         {/* <Route path='/login' element={<Login />} /> */}
         {/* <Route path='/dashboard' element={<Dashboard />} /> */}
       </Routes>
+    </div>
   );
 }
 
