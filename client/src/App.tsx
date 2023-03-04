@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
-
+import Navbar from 'components/NavBar';
 import Welcome from './components/Welcome'
 import Footer from './components/Footer'
 
@@ -26,6 +26,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar/>
       <Welcome/>
       <p>{data.apiResponse}</p>
       <Footer/>
