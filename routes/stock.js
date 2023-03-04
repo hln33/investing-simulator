@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var axios = require('axios');
+const express = require('express');
+const router = express.Router();
+const axios = require('axios');
 
 const VANTAGE_API_KEY = process.env.VANTAGE_API_KEY;
 
