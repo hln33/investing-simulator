@@ -14,7 +14,7 @@ function WelcomeSignUp() {
 
             <div style={{ paddingTop: '35vh', display: 'flex', flexFlow: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
                 <h1 style={{ color: 'white', fontSize: '50px' }}>
-                    Sign Up Today
+                        Start Investing
                 </h1>
 
                 <div id='line-break' style={{ width: '100%' }}></div>
@@ -26,7 +26,7 @@ function WelcomeSignUp() {
                         value={email}
                         onChange={ e => setEmail(e.target.value) }
                     />
-                    <Button label="Get Started"/>      
+                    <Button label="Sign Up"/>      
                 </div>
             </div>
         </div>
