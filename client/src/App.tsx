@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 import Welcome from './components/Welcome'
 
-import Welcome from './components/Welcome'
-
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";     //theme
 import "primereact/resources/primereact.min.css";                         //core css
 import "primeicons/primeicons.css";                                       //icons
