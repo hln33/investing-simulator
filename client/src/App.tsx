@@ -10,8 +10,8 @@ import "primeflex/primeflex.css"
 import Welcome from 'components/Welcome/Welcome';
 import Register from 'components/Register/Register';
 import Login from 'components/Login/Login';
-import Footer from 'components/Footer'
-import Navbar from 'components/NavBar';
+import Footer from 'components/Footer/Footer'
+import Navbar from 'components/NavBar/NavBar';
 
 // Enums
 import { TimeSeries, Symbol, Interval, OutputSize, DataType } from 'enums/AlphaVantage';
@@ -21,6 +21,7 @@ import { getStockInformation } from 'api/Stock/Stock';
 
 // Styles
 import './app.scss';
+
 
 const App = () => {
 
