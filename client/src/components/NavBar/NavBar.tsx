@@ -25,12 +25,13 @@ function Navbar() {
     },
   ];
   const loginButton = (
-    <Link className="no-underline" to="/login">
-      <Button
-        label='Login'
-        icon='pi pi-sign-in'    
-        className='p-button-secondary p-ml-auto'
-      />
+    <Link to="/login" style={{textDecoration:'none'}}>
+    <Button
+      label='Login'
+      icon='pi pi-sign-in'    
+      className='p-button-secondary p-ml-auto'
+      
+    />
     </Link>
   );
 
