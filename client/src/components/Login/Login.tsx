@@ -21,7 +21,7 @@ const Login = () => {
 
   const validateLogin = () => {
     /** @todo Check if email and password combination belongs to user */
-    validateUser("harry", "nguyen");
+    validateUser(email, password);
     return true;
   };
 
