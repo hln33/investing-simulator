@@ -1,8 +1,7 @@
 import React from 'react';
 import { Menubar } from 'primereact/menubar';
 import { Button } from 'primereact/button';
-import { Link } from 'react-router-dom';
-import 'css/Navbar.css';
+import 'components/css/Navbar.css'
 
 function Navbar() {
   const items = [
@@ -23,13 +22,11 @@ function Navbar() {
     },
   ];
   const loginButton = (
-    <Link className="no-underline" to="/login">
-      <Button
-        label='Login'
-        icon='pi pi-sign-in'    
-        className='p-button-secondary p-ml-auto'
-      />
-    </Link>
+    <Button
+      label='Login'
+      icon='pi pi-sign-in'    
+      className='p-button-secondary p-ml-auto'
+    />
   );
 
   const userMenu = (

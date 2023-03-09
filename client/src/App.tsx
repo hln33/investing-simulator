@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 
-// Components
-import Navbar from 'components/NavBar';
-import Welcome from 'components/Welcome/Welcome';
-import Register from 'components/Register/Register';
-import Footer from 'components/Footer';
-
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";     //theme
 import "primereact/resources/primereact.min.css";                         //core css
 import "primeicons/primeicons.css";                                       //icons
 import "primeflex/primeflex.css"
 
+// Components
+import Welcome from 'components/Welcome/Welcome';
+import Register from 'components/Register/Register';
+import Login from 'components/Login/Login';
+import Footer from 'components/Footer/Footer'
+import Navbar from 'components/NavBar/NavBar';
 
 // Enums
 import { Symbol } from 'enums/Stock';
@@ -21,6 +21,7 @@ import { getStockInformation } from 'api/Stock/Stock';
 
 // Styles
 import './app.scss';
+
 
 const App = () => {
 
@@ -44,7 +45,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Welcome />} />
         <Route path='/register' element={<Register />} />
-        {/* <Route path='/login' element={<Login />} /> */}
+        <Route path='/login' element={<Login />} />
         {/* <Route path='/dashboard' element={<Dashboard />} /> */}
       </Routes>
       <Footer/>
