@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
+import { Link } from 'react-router-dom';
 
 import backgroundImage from 'assets/invest.jpg'
 
@@ -20,13 +21,15 @@ function WelcomeSignUp() {
                 <div id='line-break' style={{ width: '100%' }}></div>
 
                 <div>
+                <Link to="/register" style={{textDecoration:'none'}}>
                     <InputText
                         style={{ width: '15em' }}
                         placeholder="Email"
                         value={email}
                         onChange={ e => setEmail(e.target.value) }
                     />
-                    <Button label="Sign Up"/>      
+                    <Button label="Sign Up"/>   
+                    </Link>   
                 </div>
             </div>
         </div>
