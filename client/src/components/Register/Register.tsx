@@ -9,6 +9,9 @@ import InputText from "components/PrimeReact/InputText/InputText";
 import InputMask from "components/PrimeReact/InputMask/InputMask";
 import Button from "components/PrimeReact/Button/Button";
 
+// api's
+import { registerUser } from "api/Stock/User";
+
 // Styles
 import './style.scss';
 
@@ -26,24 +29,28 @@ const Register = () => {
     },
     validate: (data) => {
       const errors = {} as any;
+      const { firstName, lastName, email, phoneNumber, password, reEnterPassword } = data;
 
-      if (!data.firstName) errors.firstName = 'Name - First name is required.';
+      if (!firstName) errors.firstName = 'Name - First name is required.';
 
-      if (!data.lastName) errors.lastName = 'Last Name - Last name is required.';
+      if (!lastName) errors.lastName = 'Last Name - Last name is required.';
 
-      if (!data.email) errors.email = 'Email - Email is required.';
+      if (!email) errors.email = 'Email - Email is required.';
 
-      if (!data.phoneNumber) errors.phoneNumber = 'Phone - Phone number is required.';
+      if (!phoneNumber) errors.phoneNumber = 'Phone - Phone number is required.';
 
-      if (!data.password) errors.password = 'Password - Valid password is required.';
+      if (!password) errors.password = 'Password - Valid password is required.';
 
-      if (data.reEnterPassword !== data.password) errors.reEnterPassword = 'Password - Passwords must be the same.';
+      if (reEnterPassword !== password) errors.reEnterPassword = 'Password - Passwords must be the same.';
 
       return errors;
     },
     onSubmit: (data) => {
+      const { firstName, lastName, email, phoneNumber, password } = data;
+
       /** @todo Do stuff with filled out form here */
       formik.resetForm();
+      registerUser(firstName, lastName, password, email, phoneNumber);
     }
   });
 
