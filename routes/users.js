@@ -8,7 +8,12 @@ router.get('/', function(req, res, next) {
 
 /* Validate a user's credentials  */
 router.get('/validate', function(req, res, next) {
-  res.send('validating');
+  res.send('validating user');
+});
+
+/* Register a user */
+router.get('/register', function(req, res, next) {
+  res.send('registering user');
 });
 
 module.exports = router;
