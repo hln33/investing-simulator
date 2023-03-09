@@ -12,7 +12,7 @@ import Welcome from 'components/Welcome/Welcome';
 import Register from 'components/Register/Register';
 
 // Enums
-import { TimeSeries, Symbol, Interval, OutputSize, DataType } from 'enums/AlphaVantage';
+import { Symbol } from 'enums/Stock';
 
 // API
 import { getStockInformation } from 'api/Stock/Stock';
@@ -24,10 +24,11 @@ const App = () => {
 
   const [data, setData] = useState<Object>({ apiResponse: "" });
 
-  // This is a sample useEffect which uses a client Stock API function to retrieve sample stock info.
+  // This is a sample useEffect which uses the client Stock API function to retrieve sample stock info.
   useEffect(() => {
     (async () => {
-      const response = await getStockInformation(TimeSeries.INTRADAY, Symbol.IBM, Interval.ONE_HOUR, true, OutputSize.COMPACT, DataType.JSON);
+      // const symbols = [Symbol.AAPL, Symbol.ABT, Symbol.AMZN];
+      const response = await getStockInformation(Object.keys(Symbol), { fields: ["displayName"]});
       setData({ apiResponse: response });
     })();
 
