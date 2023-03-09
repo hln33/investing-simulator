@@ -3,6 +3,7 @@ import { Divider } from 'primereact/divider';
 import { Chart } from 'primereact/chart';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
     //temporary filler data for the graph/tables
@@ -33,16 +34,22 @@ function Dashboard() {
         },
       };
     const stocks = [
-        { id: 1, name: 'AAPL', amount: 10, value:100 },
-        { id: 2, name: 'TSLA', amount: 5, value:1010 },
-        { id: 3, name: 'MSFT', amount: 2, value:100 },
-        { id: 4, name: 'GOOGL', amount: 10, value:1111 }
+        { id: 1, name: 'AAPL', amount: 10, value:100, marketPrice:'$10' },
+        { id: 2, name: 'TSLA', amount: 5, value:1010, marketPrice:'$20'  },
+        { id: 3, name: 'MSFT', amount: 2, value:100, marketPrice:'$13'  },
+        { id: 4, name: 'GOOGL', amount: 10, value:1111, marketPrice:'$101'  }
       ];
-    const [selectedRow, setSelectedRow] = useState(null);
-
-    const onRowSelect = (event) => {
-        setSelectedRow(event.data);
-    };
+      //redirect to buy the stock for the watchlist column
+      const [selectedStock, setSelectedStock] = React.useState(null);
+      const navigate = useNavigate();
+    
+      const onRowSelect = (event) => {
+        setSelectedStock(event.data);
+      };
+    
+      const buyStock = (rowData) => {
+        navigate(`/buy/${rowData.id}`);
+      };
     
     return (
         <div>
@@ -68,7 +75,7 @@ function Dashboard() {
                 </div>
                 <div className='col-6'>
                     <h1 style={{ textAlign:'center'}}> Stocks Owned</h1>
-                    <DataTable value={stocks} selectionMode="single"  onSelectionChange={onRowSelect}>
+                    <DataTable value={stocks} selectionMode="single" >
                         <Column field="value" header="Value ($)"></Column>
                         <Column field="name" header="Name"></Column>
                         <Column field="amount" header="Shares"></Column>
@@ -78,7 +85,19 @@ function Dashboard() {
             </div>
             <div className='grid'>
                 <div className='col-12'>
-                    <h1 style ={{textAlign:'center'}}>WatchList</h1>    
+                    <h1 style ={{textAlign:'center'}}>WatchList</h1>
+                    <DataTable value={stocks} selectionMode="single"  onSelectionChange={onRowSelect} onClick={() => buyStock(stocks)}>
+                        <Column field="marketPrice" header="Market Price"></Column>
+                        <Column field="name" header="Name"></Column>
+                        <Column field="amount" header="Shares"></Column>
+                        <Column
+                            header="Buy"
+                            body={(rowData) => (
+                                <button onClick={() => buyStock(rowData)}>Buy</button>
+                            )}
+                        />
+                    </DataTable>
+    
                 </div>
             </div>
         </div>
