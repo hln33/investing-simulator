@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 
+<<<<<<< HEAD
 // PrimeReact
+=======
+import axios from 'axios';
+import Navbar from 'components/NavBar';
+import Welcome from './components/Welcome'
+import Footer from './components/Footer'
+
+>>>>>>> origin
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";     //theme
 import "primereact/resources/primereact.min.css";                         //core css
 import "primeicons/primeicons.css";                                       //icons
@@ -37,6 +45,7 @@ const App = () => {
   console.log(data);
 
   return (
+<<<<<<< HEAD
     <div className='app'>
       <Routes>
         <Route path='/' element={<Welcome />} />
@@ -44,6 +53,13 @@ const App = () => {
         {/* <Route path='/login' element={<Login />} /> */}
         {/* <Route path='/dashboard' element={<Dashboard />} /> */}
       </Routes>
+=======
+    <div className="App">
+      <Navbar/>
+      <Welcome/>
+      <p>{data.apiResponse}</p>
+      <Footer/>
+>>>>>>> origin
     </div>
   );
 }
