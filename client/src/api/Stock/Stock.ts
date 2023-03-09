@@ -1,5 +1,8 @@
 import axios from 'axios';
 import { Symbol } from 'enums/Stock';
+import { Config } from 'Config'
+
+const {SiteURL, Port} = Config;
 
 /**
  * @memberof module:Stock
@@ -25,7 +28,7 @@ async function getStockInformation(symbol: Symbol | Symbol[] | string[], queryOp
     moduleOptions,
   };
 
-  const response = await axios('http://localhost:8080/stock', { params });
+  const response = await axios(`${SiteURL}:${Port}/stock`, { params });
   return response.data;
 }
 
