@@ -46,7 +46,7 @@ const Register = () => {
       return errors;
     },
     onSubmit: (data) => {
-      const { firstName, lastName, email, phoneNumber, password, reEnterPassword } = data;
+      const { firstName, lastName, email, phoneNumber, password } = data;
 
       /** @todo Do stuff with filled out form here */
       formik.resetForm();

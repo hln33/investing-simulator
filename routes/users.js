@@ -8,11 +8,18 @@ router.get('/', function(req, res, next) {
 
 /* Validate a user's credentials  */
 router.get('/validate', function(req, res, next) {
+  const { email, password } = req.query;
+  //console.log("email: " + email);
+  //console.log("password: " + password);
+
   res.send('validating user');
 });
 
 /* Register a user */
 router.get('/register', function(req, res, next) {
+  const { fname, lname, password, email, phoneNum } = req.query;
+  //console.log("password: " + password);
+
   res.send('registering user');
 });
 
