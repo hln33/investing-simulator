@@ -1,24 +1,26 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Divider } from 'primereact/divider';
 import { Chart } from 'primereact/chart';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
 
 function Dashboard() {
-    const data = {
+    //temporary filler data for the graph/tables
+    const [chartData, setChartData] = useState({
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [
           {
             label: 'TFSA',
-            data: [6500, 5900, 8000, 8100, 5600, 5500, 4000],
-            fill: false,
-            borderColor: '#4bc0c0',
+            backgroundColor: '#42A5F5',
+            data: [1200, 4500, 8000, 7621, 5621, 5500, 4000],
           },
+         
         ],
-      };
-      
+      });
       const options = {
-        title: {
-          display: true,
-          text: 'Line Chart',
+        responsive: true,
+        legend: {
+          position: 'top',
         },
         scales: {
           yAxes: [
@@ -30,16 +32,26 @@ function Dashboard() {
           ],
         },
       };
-      
+    const stocks = [
+        { id: 1, name: 'AAPL', amount: 10, value:100 },
+        { id: 2, name: 'TSLA', amount: 5, value:1010 },
+        { id: 3, name: 'MSFT', amount: 2, value:100 },
+        { id: 4, name: 'GOOGL', amount: 10, value:1111 }
+      ];
+    const [selectedRow, setSelectedRow] = useState(null);
 
+    const onRowSelect = (event) => {
+        setSelectedRow(event.data);
+    };
+    
     return (
         <div>
             <div className="grid">
                 <div className='col-6'>
                     <br></br>
-                    <a style={{ color: 'var(--primary-color)'}}>Hello "Insert name here", you hsve</a><br></br>
-                    <a style={{ color:'var(--primary-color'}}>Balance:</a><br></br>
-                    <a style={{ color: 'var(--primary-color)'}}>Todays P/L "insert profit/loss, red if loss, green if profit"</a>
+                    <a style={{ color: 'var(--primary-color)'}}>Hello TestBoard, you have </a><br></br>
+                    <a style={{ color:'var(--primary-color'}}>$10,000.29</a><br></br>
+                    <a style={{ color: 'var(--primary-color)'}}>Todays P/L </a> <a style={{color:'red'}}>-$123(4.2%)</a>
                 </div>
                 <div className='col-6' style={{float:'right'}}>
                     <br></br>
@@ -50,13 +62,23 @@ function Dashboard() {
             <div className='grid'>
                 <div className='col-6'>
                     <h1 style={{ textAlign:'center'}}>Graph of Changes</h1> <br></br>
-                    <Chart type="line" data={data} options={options} />
+                    <Chart type="line" data={chartData} options={options} />
    
 
                 </div>
                 <div className='col-6'>
                     <h1 style={{ textAlign:'center'}}> Stocks Owned</h1>
+                    <DataTable value={stocks} selectionMode="single"  onSelectionChange={onRowSelect}>
+                        <Column field="value" header="Value ($)"></Column>
+                        <Column field="name" header="Name"></Column>
+                        <Column field="amount" header="Shares"></Column>
+                    </DataTable>
 
+                </div>
+            </div>
+            <div className='grid'>
+                <div className='col-12'>
+                    <h1 style ={{textAlign:'center'}}>WatchList</h1>    
                 </div>
             </div>
         </div>
