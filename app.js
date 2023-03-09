@@ -26,26 +26,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/stock', stockRouter);
 
-const csvFilePath = 'test.csv';
-const csv = require('csvtojson');
-const fs = require('fs');
-
-csv()
-  .fromFile(csvFilePath)
-  .then((data) => {
-    const symbols = data.map((row) => row.Symbol);
-    const enumObj = symbols.reduce((acc, symbol) => {
-      acc[symbol] = symbol;
-      return acc;
-    }, {});
-
-    const enumString = `export enum MyEnum {\n${Object.entries(enumObj)
-      .map(([key, value]) => `  ${key} = '${value}'`)
-      .join(',\n')}\n}`;
-
-    fs.writeFileSync('file.js', enumString);
-  });
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
