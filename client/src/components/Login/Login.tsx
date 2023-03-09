@@ -7,6 +7,9 @@ import Password from "components/PrimeReact/Password/Password";
 import InputText from "components/PrimeReact/InputText/InputText";
 import Button from "components/PrimeReact/Button/Button";
 
+// api's
+import { validateUser } from "api/Stock/User";
+
 // Styles
 import './style.scss';
 
@@ -18,6 +21,7 @@ const Login = () => {
 
   const validateLogin = () => {
     /** @todo Check if email and password combination belongs to user */
+    validateUser("harry", "nguyen");
     return true;
   };
 
@@ -27,6 +31,7 @@ const Login = () => {
       setIsInvalid(true);
       return;
     }
+
     /** @todo Go to dashboard page belonging to user */
   };
 
