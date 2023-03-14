@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Sidebar } from 'primereact/sidebar'
-import { Button } from 'primereact/button'
+import { Sidebar } from 'primereact/sidebar';
+import { Button } from 'primereact/button';
 import { useState } from 'react';
 
 function CompetitionSidebar(props) {
