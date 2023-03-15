@@ -14,7 +14,7 @@ function CompetitionSidebar(props) {
                 visible={visible} 
                 onHide={() => setVisible(false)}
             >
-                <h2>My sidebar</h2>
+                <h2>This is a sidebar to hold details about the competition</h2>
             </Sidebar>
             <Button onClick={() => setVisible(true)}>Details</Button>
         </div>
