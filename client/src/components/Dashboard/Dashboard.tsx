@@ -66,6 +66,7 @@ function Dashboard() {
                 </div>
             </div>
             <Divider/>
+            {/* balance chart (line) */}
             <div className='grid'>
                 <div className='col-6'>
                     <h1 style={{ textAlign:'center'}}>Graph of Changes</h1> <br></br>
@@ -73,6 +74,7 @@ function Dashboard() {
    
 
                 </div>
+                {/* stock table */}
                 <div className='col-6'>
                     <h1 style={{ textAlign:'center'}}> Stocks Owned</h1>
                     <DataTable value={stocks} selectionMode="single" >
@@ -83,13 +85,14 @@ function Dashboard() {
 
                 </div>
             </div>
+            {/* Watchlist table for dashboard */}
             <div className='grid'>
                 <div className='col-12'>
                     <h1 style ={{textAlign:'center'}}>WatchList</h1>
-                    <DataTable value={stocks} selectionMode="single"  onSelectionChange={onRowSelect} onClick={() => buyStock(stocks)}>
-                        <Column field="marketPrice" header="Market Price"></Column>
-                        <Column field="name" header="Name"></Column>
-                        <Column field="amount" header="Shares"></Column>
+                    <DataTable value={stocks} selectionMode="single"  onSelectionChange={onRowSelect} >
+                        <Column field="marketPrice" header="Market Price" sortable></Column>
+                        <Column field="name" header="Name" sortable></Column>
+                        <Column field="amount" header="Shares" sortable></Column>
                         <Column
                             header="Buy"
                             body={(rowData) => (
