@@ -13,6 +13,7 @@ import Login from 'components/Login/Login';
 import Footer from 'components/Footer/Footer'
 import Navbar from 'components/NavBar/NavBar';
 import Dashboard from 'components/Dashboard/Dashboard'
+import Competition from 'components/Competition/Competition';
 
 // Enums
 import { Symbol } from 'enums/Stock';
@@ -47,6 +48,7 @@ const App = () => {
         <Route path='/' element={<Welcome />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/competition' element={<Competition />} />
         <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
       <Footer/>
