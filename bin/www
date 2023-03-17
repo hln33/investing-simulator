@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+const path = require('path');
+var app = require('../src/app');
 var debug = require('debug')('cmpt-372-investment-sim:server');
 var http = require('http');
 

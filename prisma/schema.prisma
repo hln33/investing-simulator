@@ -1,0 +1,77 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRESQL_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Profile {
+  profile_id    String      @id @default(uuid())
+  username      String      @unique @db.VarChar(50)
+  password_hash String      @db.VarChar(50)
+  points        Int?        @default(0)
+  Portfolio     Portfolio[]
+}
+
+model Portfolio {
+  portfolio_id      String        @id @default(uuid())
+  portfolio_type    String
+  base_balance      Float
+  investment_profit Float?        @default(0)
+  fk_profile        String
+  profile           Profile       @relation(fields: [fk_profile], references: [profile_id])
+  fk_competition    String?
+  competition       Competition?  @relation(fields: [fk_competition], references: [competition_id])
+  Owns              Owns[]
+  History           History[]
+  Transaction       Transaction[]
+}
+
+model Competition {
+  competition_id  String      @id @default(uuid())
+  entry_points    Int?
+  max_num_players Int
+  start_balance   Float
+  start_time      DateTime
+  end_time        DateTime
+  Portfolio       Portfolio[]
+}
+
+model Stock {
+  symbol          String        @id
+  price_per_share Float
+  Owns            Owns[]
+  Transaction     Transaction[]
+}
+
+model Owns {
+  fk_portfolio    String
+  portfolio       Portfolio @relation(fields: [fk_portfolio], references: [portfolio_id])
+  fk_stock        String
+  stock           Stock     @relation(fields: [fk_stock], references: [symbol])
+  num_shares      Int
+  amount_invested Float
+
+  @@id([fk_portfolio, fk_stock])
+}
+
+model Transaction {
+  transaction_id   String    @id @default(uuid())
+  num_shares       Int
+  amount           Float
+  transaction_time DateTime
+  fk_portfolio     String
+  portfolio        Portfolio @relation(fields: [fk_portfolio], references: [portfolio_id])
+  fk_stock         String
+  stock            Stock     @relation(fields: [fk_stock], references: [symbol])
+}
+
+model History {
+  history_id    String    @id @default(uuid())
+  balance       Float
+  snapshot_time DateTime
+  fk_portfolio  String
+  portfolio     Portfolio @relation(fields: [fk_portfolio], references: [portfolio_id])
+}

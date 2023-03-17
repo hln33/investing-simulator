@@ -63,6 +63,9 @@ If stuck, check out this tutorial -- the section regarding chrome remote desktop
 
 More PostGresql commands here: https://hasura.io/blog/top-psql-commands-and-flags-you-need-to-know-postgresql/ </br>
 
+How To update the prisma client:
+- use: npx prisma generate --schema=./../prisma/schema.prisma
+
 Team Members:
 -------------
 Andy C.
