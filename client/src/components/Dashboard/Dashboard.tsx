@@ -4,6 +4,7 @@ import { Chart } from 'primereact/chart';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { useNavigate } from 'react-router-dom';
+import StockTable from 'components/StockDataTable/StockTable';
 
 function Dashboard() {
     //temporary filler data for the graph/tables
@@ -89,6 +90,7 @@ function Dashboard() {
             <div className='grid'>
                 <div className='col-12'>
                     <h1 style ={{textAlign:'center'}}>WatchList</h1>
+                    <StockTable></StockTable>
                     <DataTable value={stocks} selectionMode="single"  onSelectionChange={onRowSelect} >
                         <Column field="marketPrice" header="Market Price" sortable></Column>
                         <Column field="name" header="Name" sortable></Column>

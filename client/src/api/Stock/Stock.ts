@@ -9,7 +9,7 @@ const {SiteURL, Port} = Config;
  *
  * @description Retrieve stock information from unofficial Yahoo Finance npm package
  *
- * @type {Symbol} - Single symbol or list of symbols to retrieve.
+ * @type {Symbol | Symbol[] | string[]} - Single symbol or list of symbols to retrieve.
  * @type {Object} - Optional query options to specify which fields to return, and in what format. More info in the documentation link below
  * @type {Object} - optional module options. More info in the documentation link below.
  * 
