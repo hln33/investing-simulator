@@ -32,6 +32,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/stock', stockRouter);
 
+/** DB TEST **/
 app.get('/test', async (req, res) => {
   const data = {
     username: "Denzel",
