@@ -10,7 +10,7 @@ var usersRouter = require('./routes/users');
 var stockRouter = require('./routes/stock');
 
 // constants
-const PORT = 8080;
+const PORT = 8081;
 
 var app = express();
 
@@ -46,7 +46,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(PORT, () => {
-  console.log('Server is listening on port 8080');
+  console.log('Server is listening on port 8081');
 });
 
 module.exports = app;
