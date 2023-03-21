@@ -49,7 +49,7 @@ const App = () => {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/competition' element={<Competition />} />
-        <Route path='/stock' element={<Stock symbol={Symbol.AAPL}/>} />
+        <Route path='/stock' element={<Stock />} />
         {/* <Route path='/dashboard' element={<Dashboard />} /> */}
       </Routes>
       <Footer/>

@@ -17,7 +17,11 @@ const {SiteURL, Port} = Config;
  *
  * @returns { object }
  */
-async function getStockInformation(symbol: Symbol | Symbol[] | string[], queryOptions: Object | null = null, moduleOptions: Object | null = null) {
+async function getStockInformation(
+  symbol: Symbol | Symbol[] | string | string[], 
+  queryOptions: Object | null = null, 
+  moduleOptions: Object | null = null)
+{
   if (!symbol || symbol.length === 0) {
     return null;
   }
@@ -27,7 +31,6 @@ async function getStockInformation(symbol: Symbol | Symbol[] | string[], queryOp
     queryOptions,
     moduleOptions,
   };
-
   const response = await axios(`${SiteURL}:${Port}/stock`, { params });
   return response.data;
 }
