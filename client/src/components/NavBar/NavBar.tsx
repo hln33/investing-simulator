@@ -4,7 +4,7 @@ import { Menubar } from 'primereact/menubar';
 import { Button } from 'primereact/button';
 import { Link } from 'react-router-dom';
 
-import 'components/css/Navbar.css'
+import './Navbar.css'
 
 function Navbar() {
   const items = [
