@@ -34,16 +34,16 @@ const StockTable = () => {
         <DataTable value={data} selectionMode="single"  onSelectionChange={onRowSelect}>
             <Column field ="symbol" header="Symbol"sortable></Column>
             <Column sortable
-  header="Price/Change"
-  body={(rowData) => (
-    <>
-      <span>{rowData.regularMarketPrice}</span>
-      <span className={rowData.regularMarketChange > 0 ? "green" : "red"}>
-        {rowData.regularMarketChange.fmt} ({rowData.regularMarketChange})
-      </span>
-    </>
-  )}
-/>
+                header="Price/Change"
+                body={(rowData) => (
+                <>
+                <span>{rowData.regularMarketPrice}</span>
+                <span className={rowData.regularMarketChange > 0 ? "green" : "red"}>
+                {rowData.regularMarketChange.fmt} ({rowData.regularMarketChange})
+            </span>
+            </>
+            )}
+        />
             <Column field ="regularMarketOpen" header="Open Price" sortable></Column>
             <Column field ="regularMarketVolume" header="Volume" sortable></Column>
             <Column

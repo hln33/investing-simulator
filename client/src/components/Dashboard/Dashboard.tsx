@@ -3,7 +3,6 @@ import { Divider } from 'primereact/divider';
 import { Chart } from 'primereact/chart';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { useNavigate } from 'react-router-dom';
 import StockTable from 'components/StockDataTable/StockTable';
 
 function Dashboard() {
@@ -40,17 +39,6 @@ function Dashboard() {
         { id: 3, name: 'MSFT', amount: 2, value:100, marketPrice:'$13'  },
         { id: 4, name: 'GOOGL', amount: 10, value:1111, marketPrice:'$101'  }
       ];
-      //redirect to buy the stock for the watchlist column
-      const [selectedStock, setSelectedStock] = React.useState(null);
-      const navigate = useNavigate();
-    
-      const onRowSelect = (event) => {
-        setSelectedStock(event.data);
-      };
-    
-      const buyStock = (rowData) => {
-        navigate(`/buy/${rowData.id}`);
-      };
     
     return (
         <div>
