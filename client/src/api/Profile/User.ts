@@ -19,7 +19,7 @@ export const loginUser = async (email: string, password: string): Promise<boolea
             return false;
         })
         .catch(err => {
-            console.log(err);
+            console.error(err);
             return false;
         });
 
@@ -44,19 +44,27 @@ export const verifyUser = async (token: any) => {
     return result;
 }
 
-export const registerUser = async (fname: string, lname: string, password: string, email: string, phoneNum: string) => {
+export const registerUser = async (firstName: string, lastName: string, password: string, email: string, phoneNumber: string) => {
     const data = {
-        fname: fname,
-        lname: lname,
-        password: password,
-        email: email,
-        phoneNum: phoneNum
+        firstName,
+        lastName,
+        password,
+        email,
+        phoneNumber,
     };
-    axios.post(`${SiteURL}:${Port}/users/register`, data)
+
+    const result = await axios.post(`${SiteURL}:${Port}/users/register`, data)
         .then(res => {
-            console.log(res.data);
+            if (res.data.success) {
+                return true;
+            } else {
+                return false;
+            }
         })
         .catch(err => {
-            console.log(err);
+            console.error(err);
+            return false;
         });
+
+    return result;
 }

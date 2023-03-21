@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import { classNames } from "primereact/utils";
+import { useNavigate } from "react-router-dom";
 
 // Components
 import Card from "components/PrimeReact/Card/Card";
@@ -17,6 +18,10 @@ import './style.scss';
 
 const Register = () => {
 
+  const [isRegstrationInvalid, setIsRegistrationInvalid] = useState<boolean>(false);
+
+  const navigate = useNavigate();
+  
   /** Formik **/
   const formik = useFormik({
     initialValues: {
@@ -45,12 +50,17 @@ const Register = () => {
 
       return errors;
     },
-    onSubmit: (data) => {
+    onSubmit: async (data) => {
       const { firstName, lastName, email, phoneNumber, password } = data;
+      setIsRegistrationInvalid(false);
 
-      /** @todo Do stuff with filled out form here */
       formik.resetForm();
-      registerUser(firstName, lastName, password, email, phoneNumber);
+      const isRegstrationValid = await registerUser(firstName, lastName, password, email, phoneNumber);
+      if (isRegstrationValid) {
+        navigate('/login');
+      } else {
+        setIsRegistrationInvalid(true);
+      }
     }
   });
 
@@ -182,6 +192,8 @@ const Register = () => {
 
             {emailField}
 
+            {isRegstrationInvalid ? <small className="p-error">{`This email is already in use`}</small> : <></>}
+
             {phoneNumberField}
 
             {passwordField}
@@ -189,6 +201,7 @@ const Register = () => {
             {reEnterPasswordField}
 
             <Button className="w-full mt-2 h-4rem" type="submit" label="Register Now" />
+
           </form>
 
         </Card>

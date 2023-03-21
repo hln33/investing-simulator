@@ -14,10 +14,19 @@ const { addPortfolio } = require("../services/Portfolio");
  * portfolio     portfolio[]
  * }
  */
-async function addProfile(keyValueObj) {
+async function addProfile(first_name, last_name, password_hash, email, phone_number) {
+
+  const data = {
+    first_name,
+    last_name,
+    password_hash,
+    email,
+    phone_number,
+  };
+
   try {
     const newProfile = await prisma.profile.create({
-      data: keyValueObj,
+      data
     });
 
     const profileId = newProfile.profile_id;

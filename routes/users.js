@@ -30,7 +30,6 @@ router.post('/login', async (req, res, next) => {
 /* Verify a user's credentials  */
 router.get('/verify', async (req, res, next) => {
   const token = req.headers['authorization'];
-  console.log(token)
   if (!token) {
     return res.status(401).json({ success: false, message: 'Unauthorized' });
   }
@@ -47,11 +46,16 @@ router.get('/verify', async (req, res, next) => {
 });
 
 /* Register a user */
-router.post('/register', (req, res, next) => {
-  const { fname, lname, password, email, phoneNum } = req.body;
-  // console.log(req.body);
+router.post('/register', async (req, res, next) => {
+  const { firstName, lastName, password, email, phoneNumber } = req.body;
 
-  res.send('registering user');
+  const profile = await Profile.addProfile(firstName, lastName, password, email, phoneNumber);
+  if (!profile || profile === null) {
+    res.send({ success: false });
+    return;
+  }
+
+  res.send({ success: true });
 });
 
 module.exports = router;
