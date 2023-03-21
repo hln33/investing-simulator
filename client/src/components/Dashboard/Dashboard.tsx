@@ -91,17 +91,6 @@ function Dashboard() {
                 <div className='col-12'>
                     <h1 style ={{textAlign:'center'}}>WatchList</h1>
                     <StockTable></StockTable>
-                    <DataTable value={stocks} selectionMode="single"  onSelectionChange={onRowSelect} >
-                        <Column field="marketPrice" header="Market Price" sortable></Column>
-                        <Column field="name" header="Name" sortable></Column>
-                        <Column field="amount" header="Shares" sortable></Column>
-                        <Column
-                            header="Buy"
-                            body={(rowData) => (
-                                <button onClick={() => buyStock(rowData)}>Buy</button>
-                            )}
-                        />
-                    </DataTable>
     
                 </div>
             </div>
