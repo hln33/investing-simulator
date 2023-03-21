@@ -1,1 +1,1 @@
-import prisma from "../src/db";
+const prisma = require("../src/db");

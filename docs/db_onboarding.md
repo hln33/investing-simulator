@@ -12,10 +12,16 @@
   ```
 <br>
 - Next, we'll need to connect to the cloud server through proxy, with the following command below. NOTE, the url in the command will differ depending on the type of system you're using. Here's a list of urls below, with an example for each:<br>
-  - ARM64 (M1 Chips): curl -o cloud-sql-proxy \
-https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.0.0/cloud-sql-proxy.darwin.arm64 <br>
-  - WINDOWS: wget https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.0.0/cloud-sql-proxy.x64.exe 
--O cloud-sql-proxy.exe <br>
+
+ARM64 (M1 Chips): <br>
+
+curl -o cloud-sql-proxy \
+https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.0.0/cloud-sql-proxy.darwin.arm64
+
+<br>
+WINDOWS: <br>
+wget https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.0.0/cloud-sql-proxy.x64.exe 
+-O cloud-sql-proxy.exe
 
 <br>
 
@@ -23,12 +29,20 @@ https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.0.0/cloud
   - chmod +x cloud-sql-proxy<br>
 
 - We'll now execute the file using the following command: <br>
-  - FOR MAC (M1): sudo ./cloud-sql-proxy \
+FOR MAC (M1): 
+<br>
+./cloud-sql-proxy \
 --credentials-file $GOOGLE_APPLICATION_CREDENTIALS \
-fifth-marker-374621:us-central1:investment-sim-db & <br>
-  - FOR WINDOWS: Start-Process -filepath  ".\cloud-sql-proxy.exe" -ArgumentList `
-"--credentials-file $env:GOOGLE_APPLICATION_CREDENTIALS" fifth-marker-374621:us-central1:investment-sim-db <br>
+fifth-marker-374621:us-central1:investment-sim-db &
+<br>
+FOR WINDOWS:
+<br>
+Start-Process -filepath  ".\cloud-sql-proxy.exe" -ArgumentList `
+"--credentials-file $env:GOOGLE_APPLICATION_CREDENTIALS" fifth-marker-374621:us-central1:investment-sim-db
+<br>
 
-
+Troubleshooting:<br>
+Try ending any postgres or sql processes in your task manager if it fails
+<br>
 Reference Documentation/Guides:<br>
 https://cloud.google.com/sql/docs/postgres/connect-instance-local-computer#node.js_2<br>

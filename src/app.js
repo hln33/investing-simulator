@@ -5,13 +5,13 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
+const { getStockBySymbol } = require('../services/Stock');
+const prisma = require("../src/db");
+
+
 const Pool = require('pg').Pool
 const pool = new Pool({
-  user: 'postgres',
-  host: '34.122.66.103', // If the DB is restarted, make sure to update this field with the new public IP
-  database: 'cmpt372',
-  password: '123456',
-  port: 5432,
+  connectionString: 'postgres://postgres:123456@34.122.66.103:5432/cmpt372'
 });
 
 var indexRouter = require('../routes/index');
@@ -19,7 +19,7 @@ var usersRouter = require('../routes/users');
 var stockRouter = require('../routes/stock');
 
 // constants
-const PORT = 8080;
+const PORT = 8081;
 
 var app = express();
 
@@ -37,6 +37,14 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/stock', stockRouter);
+
+app.get('/test', async (req, res) => {
+  // const data = await pool.query('SELECT * FROM STOCK');
+  // res.status(200).json(data.rows);
+  const data = await getStockBySymbol('testStock');
+  // const users = await prisma.stock.findMany();
+  res.json(data);
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

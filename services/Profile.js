@@ -1,6 +1,5 @@
-import prisma from "../src/db";
-import md5 from "md5";
-import { addPortfolio } from "./Portfolio";
+const md5 = require ("md5");
+const prisma = require("../src/db");
 
 async function addProfile(keyValueObj) {
   const newProfile = await prisma.profile.create({
@@ -30,7 +29,7 @@ async function findProfileByLogin(username, password) {
   return portfolio;
 }
 
-export {
+module.exports = {
   addProfile,
   findProfileByLogin,
 }

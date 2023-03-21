@@ -1,4 +1,4 @@
-import prisma from "../src/db";
+const prisma = require("../src/db");
 
 async function getPortfolioById(id) {
   const portfolio = await prisma.portfolio.findUnique({
@@ -35,7 +35,7 @@ async function getPortfolioBalanceHistory(portfolioId) {
 }
 
 
-export {
+module.exports = {
   getPortfolioById,
   addPortfolio,
   getPortfolioBalanceHistory,

@@ -7,71 +7,71 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Profile {
+model profile {
   profile_id    String      @id @default(uuid())
   username      String      @unique @db.VarChar(50)
   password_hash String      @db.VarChar(50)
   points        Int?        @default(0)
-  Portfolio     Portfolio[]
+  portfolio     portfolio[]
 }
 
-model Portfolio {
+model portfolio {
   portfolio_id      String        @id @default(uuid())
   portfolio_type    String
   base_balance      Float
   investment_profit Float?        @default(0)
   fk_profile        String
-  profile           Profile       @relation(fields: [fk_profile], references: [profile_id])
+  profile           profile       @relation(fields: [fk_profile], references: [profile_id])
   fk_competition    String?
-  competition       Competition?  @relation(fields: [fk_competition], references: [competition_id])
-  Owns              Owns[]
-  History           History[]
-  Transaction       Transaction[]
+  competition       competition?  @relation(fields: [fk_competition], references: [competition_id])
+  owns              owns[]
+  history           history[]
+  transaction       transaction[]
 }
 
-model Competition {
+model competition {
   competition_id  String      @id @default(uuid())
   entry_points    Int?
   max_num_players Int
   start_balance   Float
   start_time      DateTime
   end_time        DateTime
-  Portfolio       Portfolio[]
+  portfolio       portfolio[]
 }
 
-model Stock {
+model stock {
   symbol          String        @id
   price_per_share Float
-  Owns            Owns[]
-  Transaction     Transaction[]
+  owns            owns[]
+  transaction     transaction[]
 }
 
-model Owns {
+model owns {
   fk_portfolio    String
-  portfolio       Portfolio @relation(fields: [fk_portfolio], references: [portfolio_id])
+  portfolio       portfolio @relation(fields: [fk_portfolio], references: [portfolio_id])
   fk_stock        String
-  stock           Stock     @relation(fields: [fk_stock], references: [symbol])
+  stock           stock     @relation(fields: [fk_stock], references: [symbol])
   num_shares      Int
   amount_invested Float
 
   @@id([fk_portfolio, fk_stock])
 }
 
-model Transaction {
+model transaction {
   transaction_id   String    @id @default(uuid())
   num_shares       Int
   amount           Float
   transaction_time DateTime
   fk_portfolio     String
-  portfolio        Portfolio @relation(fields: [fk_portfolio], references: [portfolio_id])
+  portfolio        portfolio @relation(fields: [fk_portfolio], references: [portfolio_id])
   fk_stock         String
-  stock            Stock     @relation(fields: [fk_stock], references: [symbol])
+  stock            stock     @relation(fields: [fk_stock], references: [symbol])
 }
 
-model History {
+model history {
   history_id    String    @id @default(uuid())
   balance       Float
   snapshot_time DateTime
   fk_portfolio  String
-  portfolio     Portfolio @relation(fields: [fk_portfolio], references: [portfolio_id])
+  portfolio     portfolio @relation(fields: [fk_portfolio], references: [portfolio_id])
 }
