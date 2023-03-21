@@ -1,7 +1,6 @@
 import { getStockInformation } from 'api/Stock/Stock';
 import StockDetails from './StockDetails';
 import Error from 'components/Error/Error';
-// import { Symbol } from 'enums/Stock';
 
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -30,7 +29,7 @@ function Stock(props) {
     useEffect(() => {
         (async () => {
             const data = await callStockAPI(symbol);
-            //console.log(data);
+            console.log(data);
             if (!data) {
                 setError(true);
                 return;
