@@ -5,6 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
+const Pool = require('pg').Pool
+const pool = new Pool({
+  user: 'postgres',
+  host: '34.122.66.103', // If the DB is restarted, make sure to update this field with the new public IP
+  database: 'cmpt372',
+  password: '123456',
+  port: 5432,
+});
+
 var indexRouter = require('../routes/index');
 var usersRouter = require('../routes/users');
 var stockRouter = require('../routes/stock');
