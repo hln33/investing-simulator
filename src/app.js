@@ -6,13 +6,6 @@ var logger = require('morgan');
 var cors = require('cors');
 
 const { getStockBySymbol } = require('../services/Stock');
-const prisma = require("../src/db");
-
-
-const Pool = require('pg').Pool
-const pool = new Pool({
-  connectionString: 'postgres://postgres:123456@34.122.66.103:5432/cmpt372'
-});
 
 var indexRouter = require('../routes/index');
 var usersRouter = require('../routes/users');
@@ -39,10 +32,7 @@ app.use('/users', usersRouter);
 app.use('/stock', stockRouter);
 
 app.get('/test', async (req, res) => {
-  // const data = await pool.query('SELECT * FROM STOCK');
-  // res.status(200).json(data.rows);
   const data = await getStockBySymbol('testStock');
-  // const users = await prisma.stock.findMany();
   res.json(data);
 })
 
