@@ -3,6 +3,7 @@ import { Symbol } from 'enums/Stock';
 import { Config } from 'Config'
 
 const {SiteURL, Port} = Config;
+const EndPoint = "stock"
 
 /**
  * @memberof module:Stock
@@ -17,7 +18,7 @@ const {SiteURL, Port} = Config;
  *
  * @returns { object }
  */
-async function getStockInformation(
+async function getCurrentStockInfo(
   symbol: Symbol | Symbol[] | string | string[], 
   queryOptions: Object | null = null, 
   moduleOptions: Object | null = null)
@@ -31,10 +32,42 @@ async function getStockInformation(
     queryOptions,
     moduleOptions,
   };
-  const response = await axios(`${SiteURL}:${Port}/stock`, { params });
+  const response = await axios(`${SiteURL}:${Port}/${EndPoint}/current`, { params });
+  return response.data;
+}
+
+/**
+ * @memberof module:Stock
+ *
+ * @description Retrieve stock information from unofficial Yahoo Finance npm package
+ *
+ * @type {Symbol} - Single symbol
+ * @type {Object} - query options to specify starting period1 (required), period2, interval, events, includeAdjustedClose
+ * @type {Object} - optional module options. More info in the documentation link below.
+ * 
+ * Documentation on API parameters here: https://github.com/gadicc/node-yahoo-finance2/blob/devel/docs/modules/historical.md
+ *
+ * @returns { object }
+ */
+ async function getHistoricalStockInfo(
+  symbol: Symbol | string,
+  queryOptions: Object | null = null, 
+  moduleOptions: Object | null = null)
+{
+  if (symbol == null) {
+    return null;
+  }
+
+  const params = {
+    symbol,
+    queryOptions,
+    moduleOptions,
+  };
+  const response = await axios(`${SiteURL}:${Port}/${EndPoint}/historical`, { params });
   return response.data;
 }
 
 export {
-  getStockInformation,
+  getCurrentStockInfo,
+  getHistoricalStockInfo
 }

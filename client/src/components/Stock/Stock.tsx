@@ -1,13 +1,14 @@
-import { getStockInformation } from 'api/Stock/Stock';
+import { getCurrentStockInfo } from 'api/Stock/Stock';
 import StockDetails from './StockDetails';
 import Error from 'components/Error/Error';
 
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import StockGraph from './StockGraph';
 
 function callStockAPI(symbol: string | null) {
     if (symbol != null) {
-        return getStockInformation(symbol);
+        return getCurrentStockInfo(symbol);
     }
     return null;
 };
@@ -50,6 +51,7 @@ function Stock(props) {
         error ? <Error /> : 
         <div>
             <h1>{name}</h1>
+            <StockGraph />
             <StockDetails 
                 ask={ask} 
                 marketCap={marketCap} 

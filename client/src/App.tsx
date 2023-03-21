@@ -19,7 +19,7 @@ import Stock from 'components/Stock/Stock';
 import { Symbol } from 'enums/Stock';
 
 // API
-import { getStockInformation } from 'api/Stock/Stock';
+import { getCurrentStockInfo } from 'api/Stock/Stock';
 
 // Styles
 import './app.scss';
@@ -33,7 +33,7 @@ const App = () => {
   useEffect(() => {
     (async () => {
       // const symbols = [Symbol.AAPL, Symbol.ABT, Symbol.AMZN];
-      const response = await getStockInformation(Object.keys(Symbol), { fields: ["displayName"]});
+      const response = await getCurrentStockInfo(Object.keys(Symbol), { fields: ["displayName"]});
       setData({ apiResponse: response });
     })();
 

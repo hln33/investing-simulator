@@ -10,7 +10,7 @@ function StockDetailsField(props: Field) {
 
     return (
         <div>
-            <p><b>{name}:</b>{value}</p>
+            <p><b>{name}: </b>{value}</p>
         </div>
     );
 }
