@@ -7,7 +7,7 @@ import { Symbol } from 'enums/Stock';
 const StockTable = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        const symbols: string[] = ['AAPL', 'GOOGL', 'MSFT'];
+        const symbols: Symbol[] = [Symbol.AAPL, Symbol.GOOGL, Symbol.MSFT];
         const fetchData = async () => {
             const stockData = await getStockInformation(symbols);
             setData(stockData);
