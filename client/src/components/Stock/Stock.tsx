@@ -7,17 +7,18 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 function callStockAPI(symbol: string | null) {
-    if (symbol == null) {
-        symbol = "";
+    if (symbol != null) {
+        return getStockInformation(symbol);
     }
-    return getStockInformation(symbol);
-}
+    return null;
+};
 
 function Stock(props) {
     // get stock symbol from query string in URL
     const [searchParams] = useSearchParams();
-    let symbol = searchParams.get("symbol");
+    const symbol = searchParams.get("symbol");
 
+    // state
     const [name, setName] = useState("");
     const [ask, setAsk] = useState(0);
     const [marketCap, setMarketCap] = useState(0);
@@ -43,23 +44,20 @@ function Stock(props) {
             setYearlyLow(data.fiftyTwoWeekLow);
             setError(false);
         })();
-
-        //console.log(error);
     });
     
     return (
+        // return error page if stock symbol is not found
+        error ? <Error /> : 
         <div>
             <h1>{name}</h1>
-            {error 
-                ? <Error /> 
-                : <StockDetails 
-                    ask={ask} 
-                    marketCap={marketCap} 
-                    exchange={exchange} 
-                    yearlyHigh={yearlyHigh} 
-                    yearlyLow={yearlyLow}
-                /> 
-            }            
+            <StockDetails 
+                ask={ask} 
+                marketCap={marketCap} 
+                exchange={exchange} 
+                yearlyHigh={yearlyHigh} 
+                yearlyLow={yearlyLow}
+            />           
         </div>
     );
 }
