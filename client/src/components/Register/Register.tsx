@@ -10,7 +10,7 @@ import InputMask from "components/PrimeReact/InputMask/InputMask";
 import Button from "components/PrimeReact/Button/Button";
 
 // api's
-import { registerUser } from "api/Stock/User";
+import { registerUser } from "api/Profile/User";
 
 // Styles
 import './style.scss';

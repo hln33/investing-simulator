@@ -13,6 +13,7 @@ import Login from 'components/Login/Login';
 import Footer from 'components/Footer/Footer'
 import Navbar from 'components/NavBar/NavBar';
 import Competition from 'components/Competition/Competition';
+import Dashboard from 'components/Dashboard/dashboard';
 
 // Enums
 import { Symbol } from 'enums/Stock';
@@ -32,8 +33,8 @@ const App = () => {
   useEffect(() => {
     (async () => {
       // const symbols = [Symbol.AAPL, Symbol.ABT, Symbol.AMZN];
-      const response = await getStockInformation(Object.keys(Symbol), { fields: ["displayName"]});
-      setData({ apiResponse: response });
+      // const response = await getStockInformation(Object.keys(Symbol), { fields: ["displayName"]});
+      // setData({ apiResponse: response });
     })();
 
   }, []);
@@ -48,7 +49,7 @@ const App = () => {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/competition' element={<Competition />} />
-        {/* <Route path='/dashboard' element={<Dashboard />} /> */}
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
       <Footer/>
     </div>
