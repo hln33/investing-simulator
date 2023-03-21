@@ -6,13 +6,14 @@ var logger = require('morgan');
 var cors = require('cors');
 
 const { getStockBySymbol } = require('../services/Stock');
+const { addProfile, findProfileByLogin } = require('../services/Profile');
 
 var indexRouter = require('../routes/index');
 var usersRouter = require('../routes/users');
 var stockRouter = require('../routes/stock');
 
 // constants
-const PORT = 8081;
+const PORT = 8080;
 
 var app = express();
 
@@ -32,7 +33,13 @@ app.use('/users', usersRouter);
 app.use('/stock', stockRouter);
 
 app.get('/test', async (req, res) => {
-  const data = await getStockBySymbol('testStock');
+  const data = {
+    username: "Denzel",
+    password_hash: "123456"
+  };
+  await findProfileByLogin("Denzel", "123456")
+  await addProfile(data);
+  // const data = await getStockBySymbol('testStock');
   res.json(data);
 })
 
@@ -53,7 +60,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(PORT, () => {
-  console.log('Server is listening on port 8080');
+  console.log(`Server is listening on port ${PORT}`);
 });
 
 module.exports = app;

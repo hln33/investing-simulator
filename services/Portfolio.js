@@ -11,7 +11,7 @@ async function getPortfolioById(id) {
 
 async function addPortfolio(keyValueObj) {
   const newPortfolio = await prisma.portfolio.create({
-    keyValueObj
+    data: keyValueObj,
   });
 
   return newPortfolio;

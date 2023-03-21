@@ -3,6 +3,11 @@ datasource db {
   url      = env("POSTGRESQL_URL")
 }
 
+enum pf_type {
+  main
+  competition
+}
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -17,7 +22,7 @@ model profile {
 
 model portfolio {
   portfolio_id      String        @id @default(uuid())
-  portfolio_type    String
+  portfolio_type    pf_type
   base_balance      Float
   investment_profit Float?        @default(0)
   fk_profile        String
