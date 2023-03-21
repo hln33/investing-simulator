@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { Symbol } from 'enums/Stock';
-import { Config } from 'Config'
+import { Config } from 'Config';
 
 const {SiteURL, Port} = Config;
-const EndPoint = "stock"
+const EndPoint = `${SiteURL}:${Port}/stock`;
 
 /**
  * @memberof module:Stock
@@ -32,7 +32,7 @@ async function getCurrentStockInfo(
     queryOptions,
     moduleOptions,
   };
-  const response = await axios(`${SiteURL}:${Port}/${EndPoint}/current`, { params });
+  const response = await axios(`${EndPoint}/current`, { params });
   return response.data;
 }
 
@@ -63,11 +63,11 @@ async function getCurrentStockInfo(
     queryOptions,
     moduleOptions,
   };
-  const response = await axios(`${SiteURL}:${Port}/${EndPoint}/historical`, { params });
+  const response = await axios(`${EndPoint}/historical`, { params });
   return response.data;
 }
 
 export {
   getCurrentStockInfo,
   getHistoricalStockInfo
-}
+};

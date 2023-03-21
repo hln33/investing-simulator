@@ -27,6 +27,7 @@ function Stock(props) {
     const [yearlyLow, setYearlyLow] = useState(0);
     const [error, setError] = useState(false);
     
+    // call stock api and update state
     useEffect(() => {
         (async () => {
             const data = await callStockAPI(symbol);
