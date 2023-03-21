@@ -14,7 +14,7 @@ var usersRouter = require('../routes/users');
 var stockRouter = require('../routes/stock');
 
 // constants
-const PORT = 8081;
+const PORT = 8080;
 
 var app = express();
 
