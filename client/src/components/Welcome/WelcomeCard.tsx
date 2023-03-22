@@ -2,12 +2,18 @@ import React from 'react';
 
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button'
+import { useNavigate } from 'react-router-dom';
 
 function WelcomeCard(props) {
     const image = props.image
     const title = props.title;
     const subtitle = props.subtitle;
     const icon = props.icon;
+    const path = props.path;
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate(path);
+    };
 
     return (
         <Card 
@@ -20,7 +26,7 @@ function WelcomeCard(props) {
                 </p>
             }
             subTitle={subtitle}
-            footer={<Button>Learn More</Button>}
+            footer={<Button onClick={handleClick} >Learn More</Button>}
         />
     );
 }
