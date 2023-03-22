@@ -6,7 +6,7 @@ function CompetitionInvite(props) {
     
     return (
         <div>
-            <Button>Invite</Button>
+            <Button label="Invite" className="p-button-success" icon="pi pi-plus" iconPos="right"/>
         </div>
     );
 }

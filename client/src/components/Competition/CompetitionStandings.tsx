@@ -2,13 +2,9 @@ import React from 'react';
 
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import Card from 'components/PrimeReact/Card/Card';
 
-function CompetitionStandings(props) {
-    const participant1 = {
-        ranking: 1,
-        name: "Harry",
-        balance: 10000
-    }
+function CompetitionStandings({ ...props }) {
     const testData = [
         {
             ranking: 1,
@@ -31,11 +27,19 @@ function CompetitionStandings(props) {
             balance: 10000
         }
     ];
+
+    const header = () => {
+        return (
+            <div className="flex justify-content-between align-items-center">
+                <h1 className="m-0 text-gray-700">Current Standings</h1>
+            </div>
+        )
+    }
     
     return (
-        <div style={{margin: 50, border: 'solid'}}>
-            <h1>Competition Standings</h1>
+        // <Card>
             <DataTable 
+                header={header}
                 value={testData}
                 size={"large"}
                 showGridlines
@@ -45,7 +49,7 @@ function CompetitionStandings(props) {
                 <Column field="name" header="Name"></Column>
                 <Column field="balance" header="Balance"></Column>
             </DataTable>
-        </div>
+        // </Card>
     );
 }
 

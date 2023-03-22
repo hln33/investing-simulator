@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Chart } from 'primereact/chart';
+import Card from 'components/PrimeReact/Card/Card';
 
 function CompetitionGraph(props) {
     const testData = {
@@ -34,13 +35,13 @@ function CompetitionGraph(props) {
     };
     
     return (
-        <div style={{margin: 50, border: 'solid'}}>
-            <h1>Competition Graph</h1>
+        <Card className="mb-3">
+            <h1 className="m-0 text-gray-700">Performance Timeline</h1>
             <Chart
                 type="line"
                 data={testData}
             />
-        </div>
+        </Card>
     );
 }
 
