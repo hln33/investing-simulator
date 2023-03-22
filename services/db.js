@@ -1,3 +1,7 @@
+
+/**
+ * @todo Should remove this file once prisma has been tested and runs successfully
+ */
 const { Pool } = require('pg');
 const md5 = require('md5');
 

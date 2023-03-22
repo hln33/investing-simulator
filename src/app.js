@@ -5,9 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var stockRouter = require('./routes/stock');
+const { getStockBySymbol } = require('../services/Stock');
+const { addProfile, findProfileByLogin } = require('../services/Profile');
+
+var indexRouter = require('../routes/index');
+var usersRouter = require('../routes/users');
+var stockRouter = require('../routes/stock');
 
 // constants
 const PORT = 8081;
@@ -15,7 +18,7 @@ const PORT = 8081;
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
@@ -28,6 +31,18 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/stock', stockRouter);
+
+/** DB TEST **/
+app.get('/test', async (req, res) => {
+  const data = {
+    username: "Denzel",
+    password_hash: "123456"
+  };
+  await findProfileByLogin("Denzel", "123456")
+  await addProfile(data);
+  // const data = await getStockBySymbol('testStock');
+  res.json(data);
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -46,7 +61,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(PORT, () => {
-  console.log('Server is listening on port 8081');
+  console.log(`Server is listening on port ${PORT}`);
 });
 
 module.exports = app;
