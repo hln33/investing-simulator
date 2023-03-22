@@ -18,7 +18,7 @@ import Stock from 'components/Stock/Stock';
 import CompeteOther from 'components/FillerPage/CompeteOthers';
 import PracticeInvest from 'components/FillerPage/practiceInvest'
 import RealTimeData from 'components/FillerPage/RealTimeData';
-
+import AboutUs from 'components/FillerPage/AboutUs';
 // Enums
 import { Symbol } from 'enums/Stock';
 
@@ -58,6 +58,7 @@ const App = () => {
         <Route path='/real-time-data' element={<RealTimeData/>}/>
         <Route path='/practice-invest' element={<PracticeInvest/>}/>
         <Route path='/compete-other' element={<CompeteOther/>}/>
+        <Route path ='/about' element={<AboutUs/>}/>
       </Routes>
       <Footer/>
     </div>

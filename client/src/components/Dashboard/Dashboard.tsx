@@ -5,7 +5,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import StockTable from 'components/StockDataTable/StockTable';
 
-function Dashboard() {
+function Dashboard () {
     //temporary filler data for the graph/tables
     const [chartData, setChartData] = useState({
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],

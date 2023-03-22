@@ -19,9 +19,6 @@ function Navbar() {
         url: '/about',
     },
     {
-        label: 'Contact',
-        icon: 'pi pi-fw pi-envelope',
-        url: '/contact',
     },
   ];
   const loginButton = (
