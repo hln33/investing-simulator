@@ -23,6 +23,7 @@ function Welcome(props) {
                         title={"Practice Investing"}
                         subtitle={"Practice investing without using real money and see how well you do."}
                         icon={PrimeIcons.CHECK_SQUARE}
+                        path={'/practice-invest'}
                     />
                 </div>
                 <div className="col-4">
@@ -31,6 +32,7 @@ function Welcome(props) {
                         title={"Compete with Others"}
                         subtitle={"Partcipate in competitions with other users to see who comes out on top."}
                         icon={PrimeIcons.USERS}
+                        path={'/compete-other'}
                     />
                 </div>
                 <div className="col-4">
@@ -39,6 +41,7 @@ function Welcome(props) {
                         title={"Real Time Data "}
                         subtitle={"View hundreds of real life stocks and their peformance in real time."}
                         icon={PrimeIcons.CHART_BAR}
+                        path={'/real-time-data'}
                     />
                 </div>
             </div>

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import './Navbar.css'
 
-function Navbar() {
+const Navbar = () => {
   const items = [
     {
         label: 'Home',
@@ -19,9 +19,6 @@ function Navbar() {
         url: '/about',
     },
     {
-        label: 'Contact',
-        icon: 'pi pi-fw pi-envelope',
-        url: '/contact',
     },
   ];
   const loginButton = (
