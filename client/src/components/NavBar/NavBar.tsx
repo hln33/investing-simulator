@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import './Navbar.css'
 
-function Navbar() {
+const Navbar = () => {
   const items = [
     {
         label: 'Home',
