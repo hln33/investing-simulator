@@ -12,7 +12,7 @@ import StockTable from 'components/StockDataTable/StockTable';
 
 import './style.scss';
 
-function Dashboard() {
+const Dashboard = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
   

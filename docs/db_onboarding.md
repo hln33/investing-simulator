@@ -4,6 +4,7 @@
 - Beforehand, make sure that the "host" field in our Pool object is set to the current public IP of our DB.<br>
 - Open a terminal to our source folder and paste in the following code, line by line:<br>
   ```
+    export GOOGLE_APPLICATION_CREDENTIALS=key.json
     export DB_PORT='5432'
     export DB_NAME='cmpt372'      
     export DB_USER='postgres'       
@@ -31,9 +32,7 @@ wget https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.0.0/
 - We'll now execute the file using the following command: <br>
 FOR MAC (M1): 
 <br>
-./cloud-sql-proxy \
---credentials-file $GOOGLE_APPLICATION_CREDENTIALS \
-fifth-marker-374621:us-central1:investment-sim-db &
+./cloud-sql-proxy --credentials-file $GOOGLE_APPLICATION_CREDENTIALS fifth-marker-374621:us-central1:investment-sim-db &
 <br>
 FOR WINDOWS:
 <br>
@@ -43,6 +42,10 @@ Start-Process -filepath  ".\cloud-sql-proxy.exe" -ArgumentList `
 
 Troubleshooting:<br>
 Try ending any postgres or sql processes in your task manager if it fails
+<br>
+If you have a postgres instance running, it may be using port 5432. If so end it before using running the commands
+<br>
+Command for brew: brew services stop postgresql
 <br>
 Reference Documentation/Guides:<br>
 https://cloud.google.com/sql/docs/postgres/connect-instance-local-computer#node.js_2<br>
