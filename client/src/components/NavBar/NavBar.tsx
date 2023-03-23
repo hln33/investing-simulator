@@ -7,7 +7,7 @@ import Cookies from 'js-cookie';
 
 import './Navbar.css'
 
-function Navbar() {
+const Navbar = () => {
   const navigate = useNavigate();
 
   const signOutUser = () => {
