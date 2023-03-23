@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Divider } from 'primereact/divider';
 
-function Footer() {
+const Footer = () => {
     return (
         <footer>
             <Divider/>
