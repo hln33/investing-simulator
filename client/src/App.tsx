@@ -37,8 +37,8 @@ const App = () => {
   useEffect(() => {
     (async () => {
       // const symbols = [Symbol.AAPL, Symbol.ABT, Symbol.AMZN];
-      const response = await getCurrentStockInfo(Object.keys(Symbol), { fields: ["displayName"]});
-      setData({ apiResponse: response });
+      // const response = await getStockInformation(Object.keys(Symbol), { fields: ["displayName"]});
+      // setData({ apiResponse: response });
     })();
 
   }, []);

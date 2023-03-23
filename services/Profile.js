@@ -8,14 +8,25 @@ const { addPortfolio } = require("../services/Portfolio");
  * profile_id    String      @id @default(uuid())
  * username      String      @unique @db.VarChar(50)
  * password_hash String      @db.VarChar(50)
+ * email         String      @db.VarChar(50)
+ * phone_number  String      @db.VarChar(32)
  * points        Int?        @default(0)
  * portfolio     portfolio[]
  * }
  */
-async function addProfile(keyValueObj) {
+async function addProfile(first_name, last_name, password_hash, email, phone_number) {
+
+  const data = {
+    first_name,
+    last_name,
+    password_hash,
+    email,
+    phone_number,
+  };
+
   try {
     const newProfile = await prisma.profile.create({
-      data: keyValueObj,
+      data
     });
 
     const profileId = newProfile.profile_id;
@@ -36,11 +47,11 @@ async function addProfile(keyValueObj) {
   }
 }
 
-async function findProfileByLogin(username, password) {
+async function findProfileByLogin(email, password) {
   const portfolio = await prisma.profile.findFirst({
     where: {
-      username: username,
-      password_hash: md5(password),
+      email: email,
+      password_hash: password,
     }
   });
 

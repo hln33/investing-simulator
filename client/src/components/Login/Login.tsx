@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Components
 import Card from "components/PrimeReact/Card/Card";
@@ -8,7 +8,7 @@ import InputText from "components/PrimeReact/InputText/InputText";
 import Button from "components/PrimeReact/Button/Button";
 
 // api's
-import { validateUser } from "api/Stock/User";
+import { loginUser } from "api/Profile/User";
 
 // Styles
 import './style.scss';
@@ -19,20 +19,17 @@ const Login = () => {
   const [password, setPassword] = useState<string>('');
   const [isInvalid, setIsInvalid] = useState<boolean>(false);
 
-  const validateLogin = () => {
-    /** @todo Check if email and password combination belongs to user */
-    validateUser(email, password);
-    return true;
-  };
+  const navigate = useNavigate();
 
-  const loginUser = () => {
-    if (!validateLogin()) {
+  const login = async () => {
+    const isUserValid: boolean = await loginUser(email, password); 
+    if (!isUserValid) {
       setPassword('');
       setIsInvalid(true);
-      return;
+    } else {
+      navigate('/dashboard');
     }
 
-    /** @todo Go to dashboard page belonging to user */
   };
 
   const onPasswordChange = (value: string) => {
@@ -67,13 +64,13 @@ const Login = () => {
           {
             isInvalid
               ? (<small className="mb-2 text-red-500" id="password-invalid">
-                Password is incorrect. Please try again.
+                Login is invalid. Please try again.
                 </small>
               )
               : <></>
           }
 
-          <Button className="w-full mt-2 h-3rem" label="Login" onClick={loginUser} />
+          <Button className="w-full mt-2 h-3rem" label="Login" onClick={login} />
 
           <p className="font-medium text-sm pt-2 text-center">
             <Link to="/register">Create an account</Link>
